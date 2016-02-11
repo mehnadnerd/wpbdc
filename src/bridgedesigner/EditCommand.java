@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import javax.swing.undo.AbstractUndoableEdit;
 import javax.swing.undo.CannotRedoException;
 import javax.swing.undo.CannotUndoException;
-import org.jdesktop.application.ResourceMap;
 
 /**
  * Basic functionality for bridge editing commands that are undoable/redoable.
@@ -35,10 +34,6 @@ public abstract class EditCommand extends AbstractUndoableEdit {
      * Undo manager where this command should be recorded.
      */
     protected ExtendedUndoManager undoManager;
-    /**
-     * Resource map for the edit command class should be used by all subclasses for their presentation name text.
-     */
-    protected static final ResourceMap resourceMap = BDApp.getResourceMap(EditCommand.class);
     /**
      * Presentation name for this command, used for tool tips and undo/redo drop lists.
      */
@@ -67,12 +62,12 @@ public abstract class EditCommand extends AbstractUndoableEdit {
 
     /**
      * Get a string from resource storage for edit command presentation text.
-     * 
+     *
      * @param key key for the string to be fetched
      * @return string from resource storage
      */
     public static String getString(String key) {
-        return resourceMap.getString(key);
+        return "Not working";
     }
 
     @Override

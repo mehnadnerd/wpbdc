@@ -36,7 +36,6 @@ import java.util.Locale;
 import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jdesktop.application.ResourceMap;
 
 /**
  * Read-only bridge model.
@@ -361,8 +360,8 @@ public class BridgeModel {
          * 
          * @return tab delimited text
          */
+        /*
         String toTabDelimitedText() {
-            ResourceMap resourceMap = BDApp.getResourceMap(CostReportTableModel.class);
             StringBuilder str = new StringBuilder();
             Formatter formatter = new Formatter(str, Locale.US);
             if (notes != null) {
@@ -370,7 +369,7 @@ public class BridgeModel {
                     formatter.format("%s\n", notes[i]);
                 }
             }
-            formatter.format("%s\n", resourceMap.getString("columnIds.text").replace('|', '\t'));
+            formatter.format("%s\n", "columnIds.text").replace('|', '\t'));
             int nProductRows = costs.materialShapePairs.size();
 
             Iterator<EditableBridgeModel.MaterialSectionPair> mtlSecIt = costs.materialSectionPairs.keySet().iterator();
@@ -477,6 +476,7 @@ public class BridgeModel {
                     totalMtlCost + connectionCost + totalProductCost + costs.conditions.getTotalFixedCost()));
             return str.toString();
         }
+    */
     }
 
     /**
@@ -517,17 +517,17 @@ public class BridgeModel {
      * @return array of notes strings
      */
     public String [] getNotes() {
-        final ResourceMap resourceMap = BDApp.getResourceMap(BridgeModel.class);
+        //final ResourceMap resourceMap = BDApp.getResourceMap(BridgeModel.class);
         final Calendar calendar = Calendar.getInstance();
-        final String fmt = resourceMap.getString("dateNote.text");
+        final String fmt = "(MON, 31 DEC 1969)";
         final SimpleDateFormat dateFormat = new SimpleDateFormat(fmt == null ? "(EEE, d MMM yyyy)" : fmt);
-        final String note1 = resourceMap.getString("projectNameNote.text", projectName);
-        final String note2 = resourceMap.getString("projectIdNote.text", projectId);
-        final String note3 = resourceMap.getString("iterationNote.text", iterationNumber, dateFormat.format(calendar.getTime()));
+        final String note1 = "Turtwig Bridge";
+        final String note2 = "3878387";
+        final String note3 = "4";
         return designedBy.trim().length() == 0 ? 
             new String [] { note1, note2, note3 } :
             new String [] { note1, note2, note3,
-                resourceMap.getString("iterationNote.text", iterationNumber, dateFormat.format(calendar.getTime())),
+                "4",
             };
     }
     

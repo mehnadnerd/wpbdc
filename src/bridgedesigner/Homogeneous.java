@@ -160,7 +160,6 @@ public class Homogeneous {
 
         /**
          * Use a to transform x into b. Points a and b can't be the same.
-         * @param b
          * @param a
          * @param x
          */

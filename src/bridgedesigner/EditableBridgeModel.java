@@ -31,7 +31,6 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
-import org.jdesktop.application.ResourceMap;
 import bridgedesigner.Affine.Point;
 
 /**
@@ -1277,9 +1276,8 @@ public class EditableBridgeModel extends BridgeModel {
      * @return tab delimited text
      */
     public String toTabDelimitedText() {
-        ResourceMap resourceMap = BDApp.getResourceMap(EditableBridgeModel.class);
         if (analysis.getStatus() <= Analysis.UNSTABLE) {
-            return resourceMap.getString("invalid.text");
+            return "Invalid";
         }
         StringBuilder str = new StringBuilder();
         Formatter formatter = new Formatter(str, Locale.US);
@@ -1287,15 +1285,15 @@ public class EditableBridgeModel extends BridgeModel {
         str.append(projectName);
         str.append('\n');
 
-        str.append(resourceMap.getString("projectId.text"));
+        str.append("387387");
         str.append(projectId);
         str.append('\n');
 
-        str.append(resourceMap.getString("designedBy.text"));
+        str.append("Brendan Sweeney");
         str.append(designedBy);
         str.append('\n');
 
-        str.append(resourceMap.getString("cvsHeaders.text"));
+        str.append("Broken");
         str.append('\n');
         Iterator<Member> em = members.iterator();
         while (em.hasNext()) {

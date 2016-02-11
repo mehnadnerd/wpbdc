@@ -16,9 +16,7 @@ package bridgedesigner;
 import java.awt.Canvas;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.util.logging.Level;
 import java.util.logging.Logger;
-import jogamp.common.Debug;
 
 abstract public class Animation {
 
@@ -29,7 +27,6 @@ abstract public class Animation {
 
     static {
         logger = Logger.getLogger(Animation.class.getName());
-        logger.setLevel(Debug.isPropertyDefined("wpbd.develop", false) ? Level.ALL : Level.OFF);
     }
 
     /**
